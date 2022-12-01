@@ -13,13 +13,14 @@
   <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
     <div class="row">
       <div class="col-12 mb-4">
+        <!-- center h1 -->
         <h2 class="text-center">Prueba certificación</h2>
       </div>
-      <form id="certify-form">
-        <section id="block-selector">
+      <form id="first-super-from">
+        <section id="first-block">
             <div>
               <p>Elige el bloque a certificar</p>
-              <select class="form-control" id="block-codes">
+              <select class="form-control" id="first-block-code">
                 <option>none</option>
                 <option>00000</option>
                 <option>00001</option>
@@ -35,11 +36,11 @@
             </div>
             <div id="perc-input-container">
               <p>Ingrese el porcentaje de certificación</p>
-              <input type="number" step="1" pattern="^[-/d]/d*$" class="form-control" id="certify-percentage" placeholder="0">
+              <input type="number" step="1" pattern="^[-/d]/d*$" class="form-control" id="first-percentage" placeholder="0">
             </div>
         </section>
         <div class="btn-container">
-          <button class="btn btn-danger" id="btn-certify" disabled>Certificar</button>
+          <button class="btn btn-danger" id="first-btn-certify" disabled>Certificar</button>
         </div>
         <div class="d-flex flex-column mt-5">
           <p class="mb-2 text-center" style="width: 70%">Quitar el estado de <i>certificado</i> a todos los bloques en base de datos <b>dev36</b></p>
@@ -47,8 +48,12 @@
         </div>
       </form>
     </div>
+    <div>
+      <!-- some logs here -->
+    </div>
   </div>
-  <!-- Add main js using ESM -->
+  <!-- <script src="main.js"></script> -->
+  <!-- Add main js with ESM -->
   <script type="module" src="js/main.js"></script>
 </body>
 </html>

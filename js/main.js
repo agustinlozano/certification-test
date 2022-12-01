@@ -1,41 +1,41 @@
-import { sendData, resetAllCertifications } from './services.js';
+import { sendData, resetAllCertifications } from './servicios.js';
 import { validatePercentage } from "./validation.js";
-import { handleValues, handleInvalidPercentage } from './handlers.js';
+import { handleValues, handleInvalidPercentage } from './handle.js';
 
-const $blockCode = document.querySelector('#block-codes');
-const $percentage = document.querySelector('#certify-percentage');
+const $firstBlockCode = document.querySelector('#first-block-code');
+const $firstPercentage = document.querySelector('#first-percentage');
 
-const $btnCertify = document.querySelector('#btn-certify');
+const $firstBtnCertify = document.querySelector('#first-btn-certify');
 const $resetBtn = document.querySelector('#reset');
 
-const $form = document.querySelector('#certify-form');
+const $firstForm = document.querySelector('#first-super-from');
 
 // If the form is completed, the button is activated.
 const checkFirstForm = () => {
   const isCompleted = 
-    $blockCode.value !== 'none' && $percentage.value
+    $firstBlockCode.value !== 'none' && $firstPercentage.value
 
   if (isCompleted) {
-    $btnCertify.disabled = false;
-    $btnCertify.className = 'btn btn-success'
+    $firstBtnCertify.disabled = false;
+    $firstBtnCertify.className = 'btn btn-success'
   } else {
-    $btnCertify.disabled = true;
+    $firstBtnCertify.disabled = true;
   }
 };
 
-$form.addEventListener('change', checkFirstForm);
+$firstForm.addEventListener('change', checkFirstForm);
 
 // Add an event to send data from the form to the api
-$btnCertify.addEventListener('click', async (e) => {
+$firstBtnCertify.addEventListener('click', async (e) => {
   e.preventDefault();
 
-  const blockCode = $blockCode.value;
-  const percentage = $percentage.value;
+  const blockCode = $firstBlockCode.value;
+  const percentage = $firstPercentage.value;
 
   const $btnContainer = document.querySelectorAll('#perc-input-container')[0];
   
   if (!validatePercentage(percentage)) {
-    handleInvalidPercentage($btnContainer, $percentage, $btnCertify);
+    handleInvalidPercentage($btnContainer, $firstPercentage, $firstBtnCertify);
     resetForm();
 
     return false
@@ -45,8 +45,8 @@ $btnCertify.addEventListener('click', async (e) => {
 
   console.log(`Payload: "${data}"`);
 
-  // const response = await sendData(data);
-  // console.log("Certification res: ", response);
+  const response = await sendData(data);
+  console.log("Certification res: ", response);
 
   resetForm()
 });
@@ -61,8 +61,8 @@ $resetBtn.addEventListener('click', async (e) => {
 })
 
 function resetForm () {
-  $blockCode.value = 'none';
-  $percentage.value = '';
-  $btnCertify.disabled = true;
-  $btnCertify.className = 'btn btn-danger';
+  $firstBlockCode.value = 'none';
+  $firstPercentage.value = '';
+  $firstBtnCertify.disabled = true;
+  $firstBtnCertify.className = 'btn btn-danger';
 }

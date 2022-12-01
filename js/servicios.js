@@ -10,7 +10,7 @@ export async function sendData(data) {
   }
 
   const res = fetch(URL, options)
-  return res
+  return await res.json()
 }
 
 export async function resetAllCertifications() {
