@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css">
+  <title>Bimtrazer | Prueba certificación</title>
+  <link rel="icon" href="assets/favicon.png" type="image/x-icon">
+</head>
+<body>
+  <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
+    <div class="row">
+      <div class="col-12 mb-4">
+        <h2 class="text-center">Prueba certificación</h2>
+      </div>
+      <form id="certify-form">
+        <section id="block-selector">
+            <div>
+              <p>Elige el bloque a certificar</p>
+              <select class="form-control" id="block-codes">
+                <option>none</option>
+                <option>00000</option>
+                <option>00001</option>
+                <option>00002</option>
+                <option>00003</option>
+                <option>00004</option>
+                <option>00005</option>
+                <option>00006</option>
+                <option>00007</option>
+                <option>00008</option>
+                <option>00009</option>
+              </select>
+            </div>
+            <div id="perc-input-container">
+              <p>Ingrese el porcentaje de certificación</p>
+              <input type="number" step="1" pattern="^[-/d]/d*$" class="form-control" id="certify-percentage" placeholder="0">
+            </div>
+        </section>
+        <div class="btn-container">
+          <button class="btn btn-danger" id="btn-certify" disabled>Certificar</button>
+        </div>
+        <div class="d-flex flex-column mt-5">
+          <p class="mb-2 text-center" style="width: 70%">Quitar el estado de <i>certificado</i> a todos los bloques en base de datos <b>dev36</b></p>
+          <button id="reset" class="btn btn-secondary m-auto" style="width: 50%">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Add main js using ESM -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
